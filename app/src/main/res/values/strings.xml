@@ -3,4 +3,8 @@
     <string name="hello">Hello</string>
     <string name="start">start</string>
     <string name="change">change</string>
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="add">add</string>
+    <string name="button">Button</string>
+    <string name="delete">delete</string>
 </resources>
