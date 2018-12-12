@@ -19,23 +19,27 @@ public class Main2Activity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 value="test input";
-                StartNewActivity();
+                StartNewActivity(1);
             }
         });
         button2.setOnClickListener(new View.OnClickListener(){
            public void onClick(View v){
                value="test transfer value";
-               StartNewActivity();
+               StartNewActivity(3);
            }
         });
     }
-    protected void StartNewActivity(){
+    protected void StartNewActivity(int type){
         //初始化Intent物件
         Intent intent = new Intent();
-        //從MainActivity 到Main2Activity
-        intent.putExtra("value" , value);
-        intent.setClass( Main2Activity.this,MainActivity.class );
-        //開啟Activity
+        if(type==1) {
+            //從MainActivity 到Main2Activity
+            intent.putExtra("value", value);
+            intent.setClass(Main2Activity.this, MainActivity.class);
+            //開啟Activity
+        }else{
+            intent.setClass(Main2Activity.this, Main3Activity.class);
+        }
         startActivity(intent);
     }
 }
