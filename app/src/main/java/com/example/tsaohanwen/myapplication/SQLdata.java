@@ -15,7 +15,7 @@ public class SQLdata extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase){
-        String SQL="CREATE TABLE IF NOT EXISTS "+TB+"(_id INTEGER PRIMARY KEY AUTOINCREMENT ,_title VARCHAR)";
+        String SQL="CREATE TABLE IF NOT EXISTS "+TB+"(_idd INTEGER PRIMARY KEY AUTOINCREMENT ,_title VARCHAR)";
         sqLiteDatabase.execSQL(SQL);
     }
 
