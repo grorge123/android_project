@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import java.security.PublicKey;
 import java.util.ArrayList;
@@ -19,12 +20,14 @@ import java.util.Map;
 
 public class Main3Activity extends Activity {
     public SQLdata DH=null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
         Button  button1 = (Button)findViewById(R.id.button1);
         Button  button2 = (Button)findViewById(R.id.button2);
+        final TextView textview2 = (TextView)findViewById(R.id.textView2);
         DH=new SQLdata(this);
         button1.setOnClickListener(new View.OnClickListener(){
             public void onClick (View v){
@@ -33,15 +36,15 @@ public class Main3Activity extends Activity {
         });
         button2.setOnClickListener(new View.OnClickListener(){
             public  void onClick(View v){
-                del();
+                textview2.setText(del());
             }
         });
 
     }
-    private  void del(){
+    private  int del(){
         String id ="123";
         SQLiteDatabase db = DH.getWritableDatabase();
-        db.delete("TB","_title="+id,null);
+        return  db.delete("TB","_title="+id,null);
     }
     private void add(String s) {
         SQLiteDatabase db=DH.getWritableDatabase();
